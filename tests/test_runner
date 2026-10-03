@@ -1,0 +1,21 @@
+import unittest
+from raft.py import RaftStateMachine
+
+
+class TestRaftStateMachine(unittest.TestCase):
+    def setUp(self):
+        self.rs = RaftStateMachine()
+
+    def test_initial_state(self):
+        self.assertEqual(self.rs.state, 'Follower')
+
+    def test_become_candidate(self):
+        self.rs.become_candidate()
+        self.assertEqual(self.rs.state, 'Candidate')
+
+    def test_become_leader(self):
+        self.rs.become_leader()
+        self.assertEqual(self.rs.state, 'Leader')
+
+if __name__ == '__main__':
+    unittest.main()

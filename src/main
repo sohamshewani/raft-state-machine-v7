@@ -1,0 +1,8 @@
+from raft.py import RaftStateMachine
+
+def main():
+    rs = RaftStateMachine()
+    rs.run()
+
+if __name__ == '__main__':
+    main()
